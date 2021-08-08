@@ -1,0 +1,18 @@
+/* 0 - 600px */
+@media only screen and (max-width: 600px) {
+  #hero-text {
+    font-size: 30px !important;
+  }
+  #button {
+    background-color: rgba(226, 108, 11, 0.938);
+   /* width: 100%;*/
+    text-decoration: none;
+    color: #ecf0f1;
+    width: 100px;
+    padding: 5px 10px;
+    margin:295px;
+    margin-left:590px;
+    position:relative !important;
+
+  }
+}

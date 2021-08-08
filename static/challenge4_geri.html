@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+     
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+       
+    <link rel="stylesheet" href="css1/responsive.css">
+    <link rel="stylesheet" href="css1/font.css">
+    <link rel="stylesheet" href="css1/challenge.css">
+</head>
+
+<body>
+    <div  style="position: absolute; left: 47%; top: 45%;font-size:35px;" id="ref1";> </div>
+    <script type="text/javascript">
+        let pil=true;
+        class SuitClass {
+          constructor(player)
+          {
+            this.player=player; 
+          }
+          suit1()
+          {
+            let judul = document.getElementById("ref1");
+            let judul1=document.getElementById("ref"); 
+            judul.align="center";
+            judul1.innerText="";
+            
+            let pool = ["BATU","GUNTING","KERTAS"];
+            let rand =  Math.floor(Math.random() * pool.length);  
+            if (pil) 
+            {
+              judul.style.backgroundColor="#4C9654";
+              judul.style.color="white";  
+              myrefre();
+              pil=false;
+              if (this.player=="BATU")
+              {
+                document.getElementById("batu").src="images1/batu1.png"; 
+                 if (pool[rand]=="BATU")
+                 { 
+                    document.getElementById("batu1").src="images1/batu1.png";
+                    judul.style.backgroundColor="#035B0C";
+                    judul.innerText=" DRAW";
+                 }  
+                 else if  (pool[rand]=="GUNTING")
+                {
+                     document.getElementById("jari1").src="images1/jari1.png";
+                    judul.innerText="COM WIN";
+                }
+                else if (pool[rand]=="KERTAS")
+                {
+                    document.getElementById("kertas1").src="images1/kertas1.png";
+                    judul.innerText="PLAYER 1 WIN";
+            
+                }
+              } 
+              else  if (this.player=="GUNTING")
+              {
+                document.getElementById("jari").src="images1/jari1.png"; 
+                if (pool[rand]=="BATU")
+                {
+                    document.getElementById("batu1").src="images1/batu1.png";
+                    judul.innerText="COM WIN";
+                }  
+                else if  (pool[rand]=="GUNTING")
+                {
+                    document.getElementById("jari1").src="images1/jari1.png";
+                    judul.style.backgroundColor="#035B0C";
+                    judul.innerText="DRAW";
+                }
+                else if (pool[rand]=="KERTAS")
+                {
+                    document.getElementById("kertas1").src="images1/kertas1.png"; 
+                    judul.innerText="PLAYER 1 WIN";
+                }     
+              }
+              else  if (this.player=="KERTAS")
+              {
+                
+                document.getElementById("kertas").src="images1/kertas1.png";
+                if (pool[rand]=="BATU")
+                {
+                    document.getElementById("batu1").src="images1/batu1.png";
+                    judul.innerText="PLAYER 1 WIN";
+                }
+                else if  (pool[rand]=="GUNTING")
+                {
+                    document.getElementById("jari1").src="images1/jari1.png"
+                    judul.innerText="COM WIN";
+                }
+                else if (pool[rand]=="KERTAS")
+                {
+                    document.getElementById("kertas1").src="images1/kertas1.png";
+                    judul.style.backgroundColor="#035B0C";
+                    judul.innerText="DRAW";
+                }
+              }
+              console.log("PLAYER main:",this.player," dan  COMPUTER main:",pool[rand]," Hasil:",judul.innerText);
+            }  
+          }
+        }
+
+
+        class gunting extends SuitClass
+        {
+            constructor(player)
+            {
+                super(player);
+
+            }
+            
+        }
+
+        function mybatu()
+        {
+            let bt = new SuitClass("BATU");
+            bt.suit1();
+        }
+
+        function myjari()
+        {
+            let bt = new gunting("GUNTING");
+            bt.suit1();
+        }
+
+        function mykertas()
+        {
+            let bt=new SuitClass("KERTAS");
+            bt.suit1();
+        }
+
+   
+        function myrefre() {
+              document.getElementById("batu").src="images1/batu.png"; 
+              document.getElementById("jari").src="images1/jari.png"; 
+              document.getElementById("kertas").src="images1/kertas.png"; 
+              document.getElementById("batu1").src="images1/batu.png";
+              document.getElementById("jari1").src="images1/jari.png";
+              document.getElementById("kertas1").src="images1/kertas.png";
+        }
+        function myrefresh()
+        {
+          let judul = document.getElementById("ref1");
+          let judul1=document.getElementById("ref"); 
+         // judul.backgroundColor="#9C835F";
+          judul.style.backgroundColor="#9C835F";
+          judul1.backgroundColor="#9C835F";
+          judul.innerText="";
+          judul1.innerText="VS";
+           myrefre();
+           start();
+           pil=true;
+        
+        var rotate = false;
+        var runner;
+        var degrees = 0;
+
+        function start() {
+            runner = setInterval(function () {
+                if (degrees === 360) {
+                    degrees = 0
+                    clearInterval(runner);
+                }
+                degrees++;
+                btn.style.webkitTransform = 'rotate(' + degrees + 'deg)';
+            }, 1)
+        }
+
+        function stop() {
+            clearInterval(runner);
+        }
+        var btn = document.getElementById("refre");
+        btn.addEventListener('click', function () {
+            if (!rotate) {
+                rotate = true;
+                start();
+            } else {
+                rotate = false;
+                stop();
+            }
+        })
+        }  
+    </script>
+
+    <section>
+       <div style="position: absolute; left: 10px;top:1.5%;font-size:30px;"class="hero-text"> <</div> 
+        <div style="position: absolute; left: 60px;top:1.5%;"> 
+            <img src="images1/logo.png" width="50x" height="50x" >
+        </div> 
+
+        <div style="position: absolute; left: 10%; top: 2.5%;font-size:18px;" class="hero-text">ROCK PAPER SCISSOR</div>
+        <div style="position: absolute; left: 35%; top: 10%;font-size:18px;" class="hero-text">PLAYER 1</div>
+        <div style="position: absolute; left: 69%; top: 10%;font-size:18px;" class="hero-text">COM </div>
+        <div style="position: absolute; left: 50%; top: 45%;font-size:48px;color: brown;" id="ref">VS</div>
+       <div class="container">
+            
+         
+            <div class="row" style="padding-top:130px;padding-left:350px;left:46%;" >
+                <div class="col-4" >
+                   <img id="batu" src="images1/batu.png" width="128px" height="92px"  onclick='mybatu()'>
+                </div>
+       
+                <div class="col-8" >
+                    <img id="batu1" src="images1/batu.png" width="128px" height="92px"  style="position: absolute;right: 48%";> 
+                </div>
+            </div>
+            <div class="row" style="padding-top:40px;padding-left:370px;" >
+                <div class="col-4" >
+                    <img id="kertas" src="images1/kertas.png" width="115px" height="100px" onclick='mykertas()'> 
+                </div>
+       
+                <div class="col-8" >
+                    <img id="kertas1" src="images1/kertas.png" width="115px" height="100px" style="position: absolute;right: 48%"> 
+                </div>
+            </div>
+            <div class="row" style="padding-top:40px;padding-left:370px;" >
+                <div class="col-4" >
+                    <img id="jari" src="images1/jari.png" width="134px" height="100px" onclick='myjari()'>
+                </div>
+           
+                  <div class="col-8" >
+                    <img id="jari1" src="images1/jari.png" width="134px" height="100px" style="position: absolute;right: 48%"> 
+                </div>
+           </div>
+            <div class="row" style="padding-top:20px;padding-left:565px;" >
+                <div class="col-12" >
+                    <img id="refre" src="images1/refresh.png" width="50px" height="50px" onclick='myrefresh()'> 
+                </div>
+            </div>
+       </div>
+    </section>
+   
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+body{
+    margin: 0px;
+   background-color: #9C835F;
+ 
+}
+
+.hero-text {
+    color:black;
+    weight: normal;
+    font-family: DelaGothicOne-Regular;
+}
+
+#hero-text1 {
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+#ref{
+    color:black;
+    weight: normal;
+    font-family: DelaGothicOne-Regular;
+}
+
+
+
+#ref1{
+    /*left: 320px;
+    right: 489.89px;*/
+    width: 210.11px;
+    right: 700.89px;
+    height: 100.93px;
+    font-weight: bold;
+    radius: 10px;
+    Rotation: 28.87°;
+    transform: rotate(-28.87deg);
+    -webkit-animation: spin 4s linear;
+    Fill: Solid;
+    background-color: #9C835F;
+ /* background-color:#4C9654;*/
+
+}
