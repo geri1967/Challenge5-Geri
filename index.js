@@ -1,13 +1,8 @@
 const express = require("express");
 const path = require("path");
-
-
-
-
-
-
 var app = express();
 var fs = require('fs');
+
 
 var dir = path.join(__dirname, 'static');
 var mime = {
